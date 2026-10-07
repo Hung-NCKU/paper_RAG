@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Paper RAG · 論文閱讀室</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<aside>
+  <a class="brand" href="/">P<span>APER / RAG</span></a>
+  <div class="eyebrow">你的文件知識庫</div><h1>論文閱讀室</h1>
+  <p class="muted">從一份論文開始，找到有依據的答案。</p>
+  <section class="document"><div class="file-icon">PDF</div><strong>paper.pdf</strong><p id="documentStatus">正在讀取狀態…</p><span id="model" class="muted"></span></section>
+  <label class="upload-label" for="file">選擇 PDF</label><input id="file" type="file" accept="application/pdf,.pdf"><small>上傳並建立索引後，將取代目前文件。最多 30 MB。</small>
+  <button id="upload" class="primary">上傳並建立索引</button><button id="index">讀取 data/pdfs/paper.pdf</button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <div class="aside-footer"><span class="dot"></span> 本機 Ollama 模型<br><a href="/docs" target="_blank" rel="noopener">API 文件 ↗</a></div>
+</aside>
+<main>
+  <header><span>文件問答</span><span class="badge">RAG · 來源可追溯</span></header>
+  <div class="conversation" id="conversation" aria-live="polite">
+    <section id="welcome"><div class="eyebrow">READ. ASK. UNDERSTAND.</div><h2>把閱讀，變成對話。</h2><p>匯入 PDF 後，以自己的語言提問。<br>回答會附上檢索摘錄，幫助你回到原文核對。</p>
+    <div class="suggestions"><button data-q="這篇論文的主要研究問題是什麼？">研究問題是什麼？ <span>↗</span></button><button data-q="請根據論文說明研究方法與主要結果。">整理方法與結果 <span>↗</span></button><button data-q="這篇論文有哪些限制？">找出研究限制 <span>↗</span></button></div></section>
+  </div>
+  <form id="chat"><label for="question" class="sr-only">輸入問題</label><textarea id="question" placeholder="關於這份論文，你想了解什麼？" maxlength="2000" rows="2" required></textarea><button id="send" class="primary" type="submit" disabled>提問 ↑</button></form>
+  <p class="footnote">每次提問獨立檢索。模型回答可能有誤，請核對來源；掃描 PDF 需先完成 OCR。</p>
+</main><script src="/static/app.js"></script></body></html>

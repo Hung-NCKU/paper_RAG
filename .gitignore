@@ -1,0 +1,9 @@
+.venv/
+.venv-linux/
+.env
+__pycache__/
+.pytest_cache/
+data/index/
+data/pdfs/*.pdf
+learn/my_index.json
+*.tmp
